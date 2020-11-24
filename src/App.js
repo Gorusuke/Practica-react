@@ -9,7 +9,8 @@ import Formulario from './Formulario.jsx'
 function App() {
 
   return (
-    <div className="App s-center">
+    <>
+    <div className="App">
       <form>
         <div className="ed-container">
           <div className="ed-item form__item l-60">
@@ -18,13 +19,14 @@ function App() {
           </div>
 
           <div className="ed-item form__item l-40">
-            <label className="s-left" htmlFor="nombre">Apellido</label>
-            <input type="text"  id="nombre"/>
+            <label className="s-left" htmlFor="apellido">Apellido</label>
+            <input type="text"  id="apellido"/>
           </div>
         </div>
       </form>     
-      <Formulario />
     </div>
+    <Formulario />
+    </>
   );
 }
 
