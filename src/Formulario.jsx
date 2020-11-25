@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './styles/styles.scss';
 
 class Formulario extends Component {
@@ -112,8 +113,8 @@ class Formulario extends Component {
                                     value={this.state.email}
                                 />
                             </div>
-                            <div className="ed-item form__item s-100">
-                                <button className="button full" type="submit">Enviar</button>
+                            <div className="ed-item s-center">
+                                <button className="button l-35" type="submit">Enviar</button>
                             </div>
                         </div>
                     </form>
@@ -125,6 +126,9 @@ class Formulario extends Component {
                             </div> 
                         : null
                     }
+                </div>
+                <div className="ed-item s-center">
+                    <Link to="/pagina-cursos" className="button l-35 ghost dark-color">Ir a cursos</Link>
                 </div>
             </>
         )
