@@ -1,32 +1,23 @@
 import React from 'react';
-import './styles/styles.scss';
-import './app.css'
-import Card from './Card.jsx'
-import Formulario from './Formulario.jsx'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import PaginaCursos from './PaginaCursos.jsx';
+import Formulario from './Formulario.jsx';
+import Error404 from './Error404.jsx';
+// import './styles/styles.scss';
+// import './app.css';
 
 
 
 function App() {
 
   return (
-    <>
-    <div className="App">
-      <form>
-        <div className="ed-container">
-          <div className="ed-item form__item l-60">
-            <label className="s-left" htmlFor="nombre">Nombre</label>
-            <input type="text"  id="nombre"/>
-          </div>
-
-          <div className="ed-item form__item l-40">
-            <label className="s-left" htmlFor="apellido">Apellido</label>
-            <input type="text"  id="apellido"/>
-          </div>
-        </div>
-      </form>     
-    </div>
-    <Formulario />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Formulario}/>
+        <Route exact path="/pagina-cursos" component={PaginaCursos}/>
+        <Route component={Error404}/>
+      </Switch>
+    </Router>
   );
 }
 

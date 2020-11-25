@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './styles/styles.scss';
 
 class Formulario extends Component {
     constructor(props) {
@@ -124,7 +125,7 @@ class Formulario extends Component {
                             </div> 
                         : null
                     }
-                </div>                
+                </div>
             </>
         )
     }
