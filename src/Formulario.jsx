@@ -5,8 +5,62 @@ class Formulario extends Component {
         super(props) 
         this.state = {
             nombre: '',
-            email: ''
+            email: '',
+            validacion: false,
+            escribir: false
         }
+
+        this.cambiarNombre = this.cambiarNombre.bind(this) 
+    }
+
+    // cambiarNombre = (e) => {
+    //     this.setState({
+    //     nombre: e.target.value
+    // })} // ↑↑↑ esta es una forma (y lleva menos codigo)
+
+    cambiarNombre(e) {
+        this.setState({
+        nombre: e.target.value
+    })} // ↑↑↑ esta es otra Forma (esta necesita un proceso extra que esta en la linea 13 de este mismo codigo)
+
+
+    cambiarEmail = (e) => {
+        this.setState({
+        email: e.target.value
+    })} // ↑↑↑ esta es una forma (y lleva menos codigo)
+
+    cambiarFormulario = (e) => {
+        this.setState({
+            ...this.state,
+            [e.target.name]: e.target.value
+        })
+    } // Esta es otra opcion donde las 2 anteriores funciones las convertimos en una sola
+
+    submitFormulario = (e) => {
+        e.preventDefault();
+
+        // Validar los campos
+        if(this.state.nombre.trim() === '' ||this.state.email.trim() === ''){
+           this.setState({
+               validacion: true,
+           });
+           return;
+        }
+
+        // Eliminar el mensaje del IF
+        this.setState({
+            validacion: false
+        });
+
+        this.setState({
+            escribir: true
+        });
+
+        // // Reiniciar el form
+        // this.setState({
+        //     nombre: '',
+        //     email: ''
+        // });
     }
 
     render(){
@@ -28,19 +82,21 @@ class Formulario extends Component {
             <>
                 <div className="ed-grid">
                     <h1 className="color red-500 s-center">Formulario</h1>
-                    <form>
+                    {this.state.validacion ? <p className="s-center color red-500">Todos Los Campos Son Obligatorios</p> : null}
+                    <form
+                        onSubmit={this.submitFormulario}
+                    >
                         <div className="ed-container">
                             <div className="ed-item form__item s-100">
                                 <label className="s-left" htmlFor="nombre">Nombre Completo</label>
                                 <input 
                                     type="text" 
                                     id="nombre"
-                                    name="nombre"
                                     placeholder="Tu Nombre"
-                                    onChange={(e) => this.setState({
-                                        nombre: e.target.value
-                                    })}
-                                    // value={formulario.nombre}
+                                    name="nombre"
+                                    onChange={this.cambiarFormulario}
+                                    // onChange={this.cambiarNombre}
+                                    value={this.state.nombre}
                                 />
                             </div>
                             <div className="ed-item form__item s-100">
@@ -48,21 +104,26 @@ class Formulario extends Component {
                                 <input 
                                     type="email"
                                     id="email"
-                                    name="email"
                                     placeholder="Tu email"
-                                    onChange={(e) => this.setState({
-                                        email: e.target.value
-                                    })}
-                                    // value={formulario.email}
+                                    name="email"
+                                    onChange={this.cambiarFormulario}
+                                    // onChange={this.cambiarEmail}
+                                    value={this.state.email}
                                 />
                             </div>
                             <div className="ed-item form__item s-100">
-                                <button className="button full">Enviar</button>
+                                <button className="button full" type="submit">Enviar</button>
                             </div>
                         </div>
                     </form>
-                    <h2>hola {this.state.nombre}</h2>
-                    <span>tu correo es: {this.state.email}</span>
+                    { this.state.escribir 
+                        ?
+                            <div className="s-center">
+                                <h2>hola {this.state.nombre}</h2>
+                                <span>tu correo es: {this.state.email}</span>
+                            </div> 
+                        : null
+                    }
                 </div>                
             </>
         )
