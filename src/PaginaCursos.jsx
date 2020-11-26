@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Card from './Card';
+import Layout from './Layout.js'
+
 
 
 const PaginaCursos = () => {
@@ -18,9 +20,9 @@ const PaginaCursos = () => {
     }, []);  
 
     return (
-        <>
+        <Layout>
             <h1 className="s-center l-section">Listado de Cursos</h1>
-            <div className="ed-grid m-grid-2 l-grid-4">
+            <div className="ed-grid m-grid-2 l-grid-3 xl-grid-4">
                 {cursos.map(curso => (
                     <Card 
                         key={curso.id}
@@ -28,7 +30,7 @@ const PaginaCursos = () => {
                     />
                 ))}
             </div>
-        </>
+        </Layout>
     );
 }
 

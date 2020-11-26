@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './styles/styles.scss';
+import Layout from './Layout.js'
 
 class Formulario extends Component {
     constructor(props) {
@@ -81,7 +82,7 @@ class Formulario extends Component {
 
 
         return (
-            <>
+            <Layout>
                 <div className="ed-grid">
                     <h1 className="color red-500 s-center">Formulario</h1>
                     {this.state.validacion ? <p className="s-center color red-500">Todos Los Campos Son Obligatorios</p> : null}
@@ -130,7 +131,7 @@ class Formulario extends Component {
                 <div className="ed-item s-center">
                     <Link to="/pagina-cursos" className="button l-35 ghost dark-color">Ir a cursos</Link>
                 </div>
-            </>
+            </Layout>
         )
     }
     
