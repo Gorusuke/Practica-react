@@ -1,10 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
 
-const Card = (props) => {
+const Card = ({curso}) => {
 
-    const {title, image, price, teacher, avatar, id} = props.curso;
+    const {title, image, price, teacher, avatar, id} = curso;
 
     return (
         <article className="card">
