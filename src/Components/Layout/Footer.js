@@ -1,17 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 
 
 const Footer = () => {
     return (
-        <header className="main-header">
+        <footer className="main-footer">
             <div className="ed-grid s-grid-5 lg-grid-4">
-                <div className="s-grid-1 lg-cols-3 s-cross-center s-main-end header-links">
+                <div className="s-grid-1 lg-cols-3 s-cross-center s-main-start footer-links">
                     <nav className="main-menu">
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/pagina-cursos">Cursos</Link></li>
-                            <li><Link to="/nosotros">Nosotros</Link></li>
+                            <li><NavLink to="/">Home</NavLink></li>
+                            <li><NavLink to="/pagina-cursos">Cursos</NavLink></li>
+                            <li><NavLink to="/nosotros">Nosotros</NavLink></li>
                         </ul>
                     </nav>
                     <div className="main-menu-toggle to-l"></div>
@@ -22,7 +22,7 @@ const Footer = () => {
                     </Link>
                 </div>                
             </div>
-        </header>
+        </footer>
     );
 }
  

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import Layout from './Layout.js'
+import Layout from './Components/Layout/Layout'
+
 
 
 

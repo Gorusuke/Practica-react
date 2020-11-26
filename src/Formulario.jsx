@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './styles/styles.scss';
-import Layout from './Layout.js'
+import Layout from './Components/Layout/Layout'
+
 
 class Formulario extends Component {
     constructor(props) {

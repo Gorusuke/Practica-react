@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Card from './Card';
-import Layout from './Layout.js'
+import Layout from './Components/Layout/Layout'
 
 
 
