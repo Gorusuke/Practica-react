@@ -38,6 +38,8 @@ const PaginaCursos = () => {
         }
     ]
 
+    
+
     return (
         <>
             <h1 className="s-center l-section">Listado de Cursos</h1>
