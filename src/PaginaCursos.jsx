@@ -21,7 +21,7 @@ const PaginaCursos = () => {
 
     return (
         <Layout>
-            <h1 className="s-center l-section">Listado de Cursos</h1>
+            <h1 className="s-center l-section s-pt-4">Listado de Cursos</h1>
             <div className="ed-grid m-grid-2 l-grid-3 xl-grid-4">
                 {cursos.map(curso => (
                     <Card 

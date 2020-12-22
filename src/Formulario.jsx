@@ -85,7 +85,7 @@ class Formulario extends Component {
         return (
             <Layout>
                 <div className="ed-grid">
-                    <h1 className="color red-500 s-center">Formulario</h1>
+                    <h1 className="color red-500 s-center s-pt-4">Formulario</h1>
                     {this.state.validacion ? <p className="s-center color red-500">Todos Los Campos Son Obligatorios</p> : null}
                     <form
                         onSubmit={this.submitFormulario}
@@ -130,7 +130,7 @@ class Formulario extends Component {
                     }
                 </div>
                 <div className="ed-item s-center">
-                    <Link to="/pagina-cursos" className="button l-35 ghost dark-color">Ir a cursos</Link>
+                    <Link to="/pagina-cursos" className="button l-35 ghost dark-color s-mb-4">Ir a cursos</Link>
                 </div>
             </Layout>
         )

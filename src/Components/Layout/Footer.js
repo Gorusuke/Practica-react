@@ -1,10 +1,11 @@
 import React from 'react';
-import {NavLink, Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom';
+import logo from './logo2.png'
 
 
 const Footer = () => {
     return (
-        <footer className="main-footer">
+        <footer className="main-footer ">
             <div className="ed-grid s-grid-5 lg-grid-4">
                 <div className="s-grid-1 lg-cols-3 s-cross-center s-main-start footer-links">
                     <nav className="main-menu">
@@ -18,7 +19,7 @@ const Footer = () => {
                 </div>
                 <div className="s-cols-4 lg-cols-1 s-cross-center">
                     <Link to="/">
-                        <img src="https://motorradco.vteximg.com.br/arquivos/ids/155829-1280-840/R-1250-GS-ADVENTURE-BLANCO-AZUL-ROJO.jpg?v=637357326221570000" className="main-logo"/>
+                        <img src={logo} className="main-logo" alt="imagen"/>
                     </Link>
                 </div>                
             </div>
