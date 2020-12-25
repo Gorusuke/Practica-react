@@ -14,7 +14,7 @@ const CourseCard = ({curso}) => {
                 </Link>
             </div>
             <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
-                {/* <h3 className="t5 s-mb-2 s-center">{title}</h3> */}
+                <h3 className="t5 s-mb-2 s-center">{title}</h3>
                 <div className="s-mb-2 s-main-center">
                 <div className="card__teacher s-cross-center">
                     <div className="card__avatar s-mr-1">

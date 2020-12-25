@@ -1,24 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import Layout from '../Layout/Layout'
+import React from 'react';
+import Layout from '../Layout/Layout';
+import useHook from '../Custom Hooks/useHook';
 
 
 const Curso = (props) => {
     const {match} = props;
 
-    const [curso, setCurso] = useState([]);
-
-    const API = async (ID) => {
-        const informacion = await fetch(`http://localhost:3000/cursos/${ID}`)
-        const resultado = await informacion.json();
-        setCurso(resultado);
-    }
-
-    useEffect(() => {
-       API(match.params.id)
-       // eslint-disable-next-line
-    }, []);
-
-
+    const curso = useHook(match.params.id);
+    
     return (
         <Layout>
             <div className="ed-grid ed-container">

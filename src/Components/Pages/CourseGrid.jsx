@@ -1,29 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import CourseCard from './CourseCard';
-import Layout from '../Layout/Layout'
+import Layout from '../Layout/Layout';
+import useHook from '../Custom Hooks/useHook';
 
 
 
 const CourseGrid = () => {
-    const [cursos, setCursos] = useState([])
-    // console.info(cursos)
-
-
-    const API = async () => {
-        const informacion = await fetch('http://localhost:3000/cursos')
-        const resultado = await informacion.json();
-        setCursos(resultado);
-    }
-
-    useEffect(() => {
-       API()
-    }, []);  
+    const categoria = useHook(); 
 
     return (
         <Layout>
             <h1 className="s-center l-section s-pt-4">Listado de Cursos</h1>
             <div className="ed-grid m-grid-2 l-grid-3 xl-grid-4">
-                {cursos.map(curso => (
+                {categoria.map(curso => (
                     <CourseCard
                         key={curso.id}
                         curso={curso}
