@@ -1,14 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux';
+
+// Redux
 import { addToCart } from '../../Redux/actions/actionCreator';
-import {connect} from 'react-redux'
 
 const CourseCard = (props) => {
 
     const {title, image, price, teacher, avatar, id} = props.curso;
 
     const {addToCart, cart} = props;
+
+    const dispatch = useDispatch()
+
+    const agregarAlCarrito = () => dispatch(addToCart(id))
 
 
     return (
@@ -71,4 +77,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
  
-export default connect(mapStateToProps, mapDispatchToProps)(CourseCard);
+export default CourseCard;

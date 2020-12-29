@@ -1,8 +1,8 @@
 import { ADD_TO_CART } from "../types";
 
-const addToCart = (id) => ({
-    type: ADD_TO_CART,
-    payload: id
-});
-
-export {addToCart}
+export function addToCart(id){
+    return {
+        type: ADD_TO_CART,
+        payload: id
+    }
+};

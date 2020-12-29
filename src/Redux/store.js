@@ -1,23 +1,16 @@
-import {createStore} from 'redux';
-
-let initialStore = {
-    cart: []
-}
+import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
+import reducer from './reducers/index';
 
 
-const rootReducer = (state = initialStore, action) => {
-    console.info(action.cart)
-    if(action.type === 'ADD_TO_CART'){
+const store = createStore (
+    reducer, 
+    compose(applyMiddleware(thunk),
 
-        if(state.cart.find(a => a === action.payload)) return state
+        typeof window === 'object' &&
+            typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== 'undefined' ? 
+            window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
+    )
+);
 
-        return {
-            ...state,
-            cart: state.cart.concat(action.payload)
-        }
-    }
-
-    return state
-}
-
-export default createStore(rootReducer)
+export default store;

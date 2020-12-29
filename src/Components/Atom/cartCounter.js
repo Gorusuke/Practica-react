@@ -1,7 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
+
+// Redux
+import {addToCart} from '../../Redux/actions/actionCreator'
 
 const CartCounter = (props) => {
+
+
+    const dispatch = useDispatch()
+
+    const agregarAlCarrito = () => dispatch(addToCart)
+
     return (
         <div>
             <li>
@@ -11,13 +20,4 @@ const CartCounter = (props) => {
     );
 }
 
-const mapStateToProps = (state) => (
-    {
-        cartLength: state.cart
-    }
-    
-)
- 
-const mapDispatchToProps = () => ({})
-
-export default connect(mapStateToProps, mapDispatchToProps)(CartCounter);
+export default CartCounter;
