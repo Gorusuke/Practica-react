@@ -11,7 +11,7 @@ const CourseGrid = () => {
     return (
         <Layout>
             <h1 className="s-center l-section s-pt-4">Listado de Cursos</h1>
-            <div className="ed-grid m-grid-2 l-grid-3 xl-grid-4">
+            <div className="ed-grid m-grid-2 l-grid-3 xl-grid-4 l-big-section">
                 {categoria.map(curso => (
                     <CourseCard
                         key={curso.id}

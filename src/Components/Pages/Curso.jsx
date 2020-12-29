@@ -10,7 +10,7 @@ const Curso = (props) => {
     
     return (
         <Layout>
-            <div className="ed-grid ed-container">
+            <div className="ed-grid ed-container l-big-section">
                 <div className="ed-item s-50 m-to-center">
                     <h1 className="s-center s-pt-4">{curso.title}</h1>
                     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl l-block">

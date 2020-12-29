@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { addToCart } from '../../Redux/actions/actionCreator';
+import {connect} from 'react-redux'
 
-const CourseCard = ({curso}) => {
+const CourseCard = (props) => {
 
-    const {title, image, price, teacher, avatar, id} = curso;
+    const {title, image, price, teacher, avatar, id} = props.curso;
+
+    const {addToCart, cart} = props;
+
 
     return (
         <article className="card">
@@ -26,7 +31,14 @@ const CourseCard = ({curso}) => {
                     </div>
                 </div>
                 <div className="s-main-center">
-                    <button className="button--ghost-alert button--tiny">$ {price}</button>
+                    <button 
+                        className="button--ghost-alert button--tiny"
+                        onClick={() => addToCart(id)}
+                    > { cart.find(a => a === id)
+                        ? <i className="fas fa-check"></i>
+                        : `$${price}`
+                    }
+                    </button>
                 </div>
             </div>
         </article>
@@ -48,5 +60,15 @@ CourseCard.defaultProps = {
     teacher: 'no hay profesor',
     avatar:''
 }
+
+const mapStateToProps = (state) => ({
+    cart: state.cart
+})
  
-export default CourseCard;
+const mapDispatchToProps = (dispatch) => ({
+    addToCart(id) {
+        dispatch(addToCart(id))
+    }
+})
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(CourseCard);
