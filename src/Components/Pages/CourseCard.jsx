@@ -10,7 +10,7 @@ const CourseCard = (props) => {
 
     const {title, image, price, teacher, avatar, id} = props.curso;
 
-    const {addToCart, cart} = props;
+    // const {addToCart} = props;
 
     const dispatch = useDispatch()
 
@@ -39,8 +39,8 @@ const CourseCard = (props) => {
                 <div className="s-main-center">
                     <button 
                         className="button--ghost-alert button--tiny"
-                        onClick={() => addToCart(id)}
-                    > { cart.find(a => a === id)
+                        onClick={() => agregarAlCarrito(id)}
+                    > { addToCart.payload === id
                         ? <i className="fas fa-check"></i>
                         : `$${price}`
                     }

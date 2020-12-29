@@ -1,15 +1,7 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
 
-// Redux
-import {addToCart} from '../../Redux/actions/actionCreator'
 
 const CartCounter = (props) => {
-
-
-    const dispatch = useDispatch()
-
-    const agregarAlCarrito = () => dispatch(addToCart)
 
     return (
         <div>
