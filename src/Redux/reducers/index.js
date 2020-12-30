@@ -3,5 +3,5 @@ import rootReducer from './rootReducer';
 
 
 export default combineReducers({
-    cart: rootReducer
+    carrito: rootReducer
 });

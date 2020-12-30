@@ -5,12 +5,13 @@ import {useSelector} from 'react-redux';
 
 const CartCounter = () => {
 
-    const cart = useSelector(state => state.cart)
+    // Accede al state del store
+    const cart = useSelector(state => state.carrito.cart)
 
     return (
         <div>
             <li>
-                <button className="button tiny ghost"><i className="fas fa-shopping-cart"></i> {cart.cart.length}</button>
+                <button className="button tiny ghost"><i className="fas fa-shopping-cart"></i> {cart.length}</button>
             </li>
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 // Redux
 import { addToCart } from '../../Redux/actions/actionCreator';
@@ -9,6 +9,9 @@ import { addToCart } from '../../Redux/actions/actionCreator';
 const CourseCard = (props) => {
 
     const {title, image, price, teacher, avatar, id} = props.curso;
+
+    // Accede al state del store
+    const cart = useSelector(state => state.carrito.cart)
 
     // Redux
     // utilizar useDispatch y te crea una funcion
@@ -41,9 +44,9 @@ const CourseCard = (props) => {
                     <button 
                         className="button--ghost-alert button--tiny"
                         onClick={() => agregarAlCarrito(id)}
-                    >{ /*=== id
+                    >{ cart.find(a => a === id)
                         ? <i className="fas fa-check"></i>
-                        :*/ `$${price}`
+                        : `$${price}`
                     }
                     </button>
                 </div>
