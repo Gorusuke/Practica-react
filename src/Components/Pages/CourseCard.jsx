@@ -10,11 +10,12 @@ const CourseCard = (props) => {
 
     const {title, image, price, teacher, avatar, id} = props.curso;
 
-    // const {addToCart} = props;
+    // Redux
+    // utilizar useDispatch y te crea una funcion
+    const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
-
-    const agregarAlCarrito = () => dispatch(addToCart(id))
+    // Mandar a llamar el action de addToCart
+    const agregarAlCarrito = (id) => dispatch(addToCart(id))
 
 
     return (
@@ -40,9 +41,9 @@ const CourseCard = (props) => {
                     <button 
                         className="button--ghost-alert button--tiny"
                         onClick={() => agregarAlCarrito(id)}
-                    > { addToCart.payload === id
+                    >{ /*=== id
                         ? <i className="fas fa-check"></i>
-                        : `$${price}`
+                        :*/ `$${price}`
                     }
                     </button>
                 </div>
@@ -67,14 +68,14 @@ CourseCard.defaultProps = {
     avatar:''
 }
 
-const mapStateToProps = (state) => ({
-    cart: state.cart
-})
+// const mapStateToProps = (state) => ({
+//     cart: state.cart
+// })
  
-const mapDispatchToProps = (dispatch) => ({
-    addToCart(id) {
-        dispatch(addToCart(id))
-    }
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     addToCart(id) {
+//         dispatch(addToCart(id))
+//     }
+// })
  
 export default CourseCard;

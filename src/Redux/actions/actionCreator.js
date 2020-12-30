@@ -1,7 +1,7 @@
 import { ADD_TO_CART } from "../types";
 
 export function addToCart(id){
-    return {
+    return {    
         type: ADD_TO_CART,
         payload: id
     }
