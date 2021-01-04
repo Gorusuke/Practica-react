@@ -4,12 +4,7 @@ const useHook = (id) => {
     const [cursos, setCursos] = useState([]);
 
     const API = async (ident) => {
-        let informacion;
-
-        ident
-            ? informacion = await fetch(`http://localhost:3000/cursos/${ident}`)
-            : informacion = await fetch(`http://localhost:3000/cursos`)
-
+        const informacion = await fetch(`http://localhost:3000/cursos/${ident}`)
         const resultado = await informacion.json();
         setCursos(resultado);
     }

@@ -1,12 +1,22 @@
 import React from 'react';
+import {useSelector} from 'react-redux'
 import CourseCard from './CourseCard';
 import Layout from '../Layout/Layout';
-import useHook from '../Custom Hooks/useHook';
+// import useHook from '../Custom Hooks/useHook';
+
+// Redux
+// import {getCourses} from '../../Redux/actions/actionCreator'
 
 
 
 const CourseGrid = () => {
-    const categoria = useHook(); 
+    // const categoria = useHook(); 
+    const categoria = useSelector(state => state.cursos.courses)
+
+    // const dispatch = useDispatch();
+
+    // // Mandar a llamar el action de addToCart
+    // const cursos = (id) => dispatch(getCourses())
 
     return (
         <Layout>

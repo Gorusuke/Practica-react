@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "../types";
+import { ADD_TO_CART, REMOVE_TO_CART } from "../types";
 
 
 let initialStore = {
@@ -13,7 +13,11 @@ export default function(state = initialStore, action){
                 ...state,
                 cart: state.cart.concat(action.payload)
             }
-    
+        case REMOVE_TO_CART:
+            return {
+                ...state,
+                cart: state.cart.filter(a => a !== action.payload)
+            }   
         default:
             return state;
     }

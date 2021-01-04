@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
 
 // Redux
-import { addToCart } from '../../Redux/actions/actionCreator';
+import { addToCart, removeToCart } from '../../Redux/actions/actionCreator';
 
 const CourseCard = (props) => {
 
@@ -19,6 +19,7 @@ const CourseCard = (props) => {
 
     // Mandar a llamar el action de addToCart
     const agregarAlCarrito = (id) => dispatch(addToCart(id))
+    const eliminarDelCarrito = (id) => dispatch(removeToCart(id))
 
 
     return (
@@ -41,14 +42,19 @@ const CourseCard = (props) => {
                     </div>
                 </div>
                 <div className="s-main-center">
-                    <button 
-                        className="button--ghost-alert button--tiny"
-                        onClick={() => agregarAlCarrito(id)}
-                    >{ cart.find(a => a === id)
-                        ? <i className="fas fa-check"></i>
-                        : `$${price}`
+                    { cart.find(a => a === id)
+                        ? <button 
+                            className="button--ghost-alert button--tiny"
+                            onClick={() => eliminarDelCarrito(id)}
+                        ><i className="fas fa-check"></i></button>
+                        : <button 
+                            className="button--ghost-alert button--tiny"
+                            onClick={() => agregarAlCarrito(id)}
+                        >${price}</button>
                     }
-                    </button>
+                    
+                   
+                    
                 </div>
             </div>
         </article>

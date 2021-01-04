@@ -5,11 +5,13 @@ import Home from './Components/Pages/Home.jsx';
 import Curso from './Components/Pages/Curso.jsx';
 import CourseGrid from './Components/Pages/CourseGrid.jsx';
 import Error404 from './Components/Pages/Error404.jsx';
+import {getCourses} from './Redux/actions/actionCreator'
 
 // Redux
 import { Provider } from 'react-redux';
 import store from './Redux/store'
 
+store.dispatch(getCourses())
 
 
 function App() {

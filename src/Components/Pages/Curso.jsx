@@ -1,13 +1,20 @@
 import React from 'react';
 import Layout from '../Layout/Layout';
 import useHook from '../Custom Hooks/useHook';
+// import {useSelector} from 'react-redux'
+
+
 
 
 const Curso = (props) => {
     const {match} = props;
 
     const curso = useHook(match.params.id);
-    
+    // const cursos = useSelector(state => state.cursos.courses)
+
+    // const curso = cursos.filter(a => a.id === parseInt(match.params.id))[0]
+
+
     return (
         <Layout>
             <div className="ed-grid ed-container l-big-section">
