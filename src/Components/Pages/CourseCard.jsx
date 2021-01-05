@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+// Context API
+import CartContext from '../ContextAPI/Context/CartContext';
 
 const CourseCard = (props) => {
 
     const {title, image, price, teacher, avatar, id} = props.curso;
+
+
+    // Obtener el state si un proyecto esta activo
+    const cartContext = useContext(CartContext);
+    const {cart, addToCart, removeToCart} = cartContext;
 
 
     return (
@@ -27,11 +35,16 @@ const CourseCard = (props) => {
                     </div>
                 </div>
                 <div className="s-main-center">
-                    <button 
-                        className="button--ghost-alert button--tiny"
-                        // onClick={() => addToCart(id)}
-                    > ${price}
-                    </button>
+                    { cart.find(a => a === id)
+                        ? <button 
+                            className="button--ghost-alert button--tiny"
+                            onClick={() => removeToCart(id)}
+                        ><i className="fas fa-check"></i></button>
+                        : <button 
+                            className="button--ghost-alert button--tiny"
+                            onClick={() => addToCart(id)}
+                        > ${price} </button>
+                    }                    
                 </div>
             </div>
         </article>

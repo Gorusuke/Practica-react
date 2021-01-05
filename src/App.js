@@ -7,13 +7,13 @@ import CourseGrid from './Components/Pages/CourseGrid.jsx';
 import Error404 from './Components/Pages/Error404.jsx';
 
 // Context API
-import CourseState from './Components/ContextAPI/Context/CourseState';
+import CartState from './Components/ContextAPI/Context/CartState';
 
 
 function App() {
 
   return (
-    <CourseState>
+    <CartState>
       <Router>
         <Switch>
           <Route exact path="/" component={Home}/>
@@ -23,7 +23,7 @@ function App() {
           <Route component={Error404}/>
         </Switch>
       </Router>
-    </CourseState>   
+    </CartState>   
   );
 }
 
