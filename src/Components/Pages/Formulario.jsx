@@ -129,9 +129,6 @@ class Formulario extends Component {
                         : null
                     }
                 </div>
-                <div className="ed-item s-center">
-                    <Link to="/pagina-cursos" className="button l-35 ghost dark-color s-mb-4">Ir a cursos</Link>
-                </div>
             </Layout>
         )
     }

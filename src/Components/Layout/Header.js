@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink, Link} from 'react-router-dom';
 import logo from './logo2.png'
+import CartCounter from '../Atom/cartCounter'
 
 
 const Header = () => {
@@ -18,6 +19,8 @@ const Header = () => {
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/pagina-cursos">Cursos</NavLink></li>
                             <li><NavLink to="/nosotros">Nosotros</NavLink></li>
+                            <li><NavLink to="/formulario">Formulario</NavLink></li>
+                            <CartCounter />
                         </ul>
                     </nav>
                     <div className="main-menu-toggle to-l"></div>

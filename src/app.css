@@ -114,3 +114,10 @@ body{
   text-align: center;
   margin-top: 4rem;
 }
+
+
+footer{
+  bottom: 0%;
+  position: absolute;
+  width: 100%;
+}
