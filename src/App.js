@@ -6,16 +6,14 @@ import Curso from './Components/Pages/Curso.jsx';
 import CourseGrid from './Components/Pages/CourseGrid.jsx';
 import Error404 from './Components/Pages/Error404.jsx';
 
-// Redux
-import { Provider } from 'react-redux';
-import store from './Redux/store'
-
+// Context API
+import CourseState from './Components/ContextAPI/Context/CourseState';
 
 
 function App() {
 
   return (
-    <Provider store={store}>
+    <CourseState>
       <Router>
         <Switch>
           <Route exact path="/" component={Home}/>
@@ -25,7 +23,7 @@ function App() {
           <Route component={Error404}/>
         </Switch>
       </Router>
-    </Provider>    
+    </CourseState>   
   );
 }
 
