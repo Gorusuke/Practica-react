@@ -1,16 +1,16 @@
 import React, {useReducer} from 'react';
-import CourseReducer from './CartReducer';
-import CoursesContext from './CartContext';
+import CartReducer from './CartReducer';
+import CartContext from './CartContext';
 
 import {ADD_TO_CART, REMOVE_TO_CART} from '../Types/index'
 
-const CourseState = (props) => {
+const CartState = (props) => {
 
     const initialState = {
         cart: []
     }
 
-    const [state, dispatch] = useReducer(CourseReducer, initialState)
+    const [state, dispatch] = useReducer(CartReducer, initialState)
 
 
     // Añadir al carrito
@@ -32,7 +32,7 @@ const CourseState = (props) => {
 
 
     return (
-        <CoursesContext.Provider
+        <CartContext.Provider
             value={{
                 cart: state.cart,
                 addToCart,
@@ -40,8 +40,8 @@ const CourseState = (props) => {
             }}
         >
             {props.children}
-        </CoursesContext.Provider>
+        </CartContext.Provider>
     )
 }
  
-export default CourseState;
+export default CartState;
